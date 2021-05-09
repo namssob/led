@@ -1,12 +1,12 @@
 let 等待時間 = 0
 input.onButtonPressed(Button.A, function () {
+    ezstartkit.oled_font_size(ezstartkit.OLED_Size.size1)
     ezstartkit.oled_clear()
     ezstartkit.oled_init()
-    ezstartkit.oled_showString(0, 0, "Button A")
+    ezstartkit.oled_showString(0, 0, "I am Ivy.")
     led.enable(true)
-    music.setBuiltInSpeakerEnabled(false)
     等待時間 = 500
-    music.startMelody(music.builtInMelody(Melodies.Birthday), MelodyOptions.OnceInBackground)
+    music.startMelody(music.builtInMelody(Melodies.Birthday), MelodyOptions.ForeverInBackground)
     images.createImage(`
         # # . # #
         # # # # #
@@ -67,6 +67,8 @@ input.onButtonPressed(Button.A, function () {
 input.onGesture(Gesture.Shake, function () {
     led.enable(false)
     music.setBuiltInSpeakerEnabled(false)
+    ezstartkit.oled_clear()
+    music.stopAllSounds()
 })
 input.onButtonPressed(Button.B, function () {
     led.enable(true)
