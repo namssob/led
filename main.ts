@@ -69,6 +69,8 @@ input.onGesture(Gesture.Shake, function () {
     music.setBuiltInSpeakerEnabled(false)
     ezstartkit.oled_clear()
     music.stopAllSounds()
+    ezstartkit.oled_showNumber(0, 0, ezstartkit.dht11(ezstartkit.DHT_Data.data1))
+    ezstartkit.oled_showNumber(0, 1, ezstartkit.dht11(ezstartkit.DHT_Data.data2))
 })
 input.onButtonPressed(Button.B, function () {
     led.enable(true)
